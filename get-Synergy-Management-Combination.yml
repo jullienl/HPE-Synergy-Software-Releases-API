@@ -1,0 +1,22 @@
+---
+- name: Gather HPE Synergy Management Combination information
+  hosts: localhost
+  
+  tasks:
+    - name: Gather facts about Synergy Management Combinations
+      uri:        
+        url: https://hpe-synergy-software-api.herokuapp.com/synergyManagementCombinations
+      register: response
+      delegate_to: localhost
+
+    # - debug: var=response.json
+
+    - name: Getting supported Synergy Service Packs for Oneview 6.30/Image Streamer 6.10
+      set_fact:
+        supported_ssp_for_6_30: "{{ response.json | 
+          selectattr('composer', 'equalto', '6.30') | 
+          selectattr('imageStreamer', 'equalto', '6.10') | 
+          map(attribute='supportedSsp') | 
+          list }}"
+
+    - debug: var=supported_ssp_for_6_30
