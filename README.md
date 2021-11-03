@@ -175,7 +175,7 @@ $response = Invoke-RestMethod 'https://hpe-synergy-software-api.herokuapp.com/sy
 
 $response | ? { $_.composer -eq "6.10" -and $_.imagestreamer -eq "6.10"} | % supportedssp
 ```
-Output
+Output:
 ```
 2021.11.01
 2021.05.03
