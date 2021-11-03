@@ -1,0 +1,180 @@
+{
+    "synergyManagementCombinations": [
+        {
+            "id": 10,
+            "composer": "6.30",
+            "imageStreamer": "6.10",
+            "milestone": "true",
+            "recommendedSsp": "2021.11.01",
+            "releaseDate": "2021-09-20",
+            "supportedSsp": [
+                "2021.11.01",
+                "2021.05.03",
+                "2021.05.01",
+                "2021.02.02",
+                "2021.02.01",
+                "2021.01.03",
+                "2021.01.02",
+                "2021.01.01"
+            ]
+        },
+        {
+            "id": 9,
+            "composer": "6.30",
+            "imageStreamer": "6.00",
+            "milestone": "true",
+            "recommendedSsp": "2021.11.01",
+            "releaseDate": "2021-09-20",
+            "supportedSsp": [
+                "2021.11.01",
+                "2021.05.03",
+                "2021.05.01",
+                "2021.02.02",
+                "2021.02.01",
+                "2021.01.03",
+                "2021.01.02",
+                "2021.01.01"
+            ]
+        },
+        {
+            "id": 8,
+            "composer": "6.20",
+            "imageStreamer": "6.10",
+            "milestone": "false",
+            "recommendedSsp": "2021.11.01",
+            "releaseDate": "2021-07-12",
+            "supportedSsp": [
+                "2021.11.01",
+                "2021.05.03",
+                "2021.05.01",
+                "2021.02.02",
+                "2021.02.01",
+                "2021.01.03",
+                "2021.01.02",
+                "2021.01.01"
+            ]
+        },
+        {
+            "id": 7,
+            "composer": "6.20",
+            "imageStreamer": "6.00",
+            "milestone": "false",
+            "recommendedSsp": "2021.11.01",
+            "releaseDate": "2021-07-12",
+            "supportedSsp": [
+                "2021.11.01",
+                "2021.05.03",
+                "2021.05.01",
+                "2021.02.02",
+                "2021.02.01",
+                "2021.01.03",
+                "2021.01.02",
+                "2021.01.01"
+            ]
+        },
+        {
+            "id": 6,
+            "composer": "6.10",
+            "imageStreamer": "6.10",
+            "milestone": "false",
+            "recommendedSsp": "2021.11.01",
+            "releaseDate": "2021-05-05",
+            "supportedSsp": [
+                "2021.11.01",
+                "2021.05.03",
+                "2021.05.01",
+                "2021.02.02",
+                "2021.02.01",
+                "2021.01.03",
+                "2021.01.02",
+                "2021.01.01"
+            ]
+        },
+        {
+            "id": 5,
+            "composer": "6.10",
+            "imageStreamer": "6.00",
+            "milestone": "false",
+            "recommendedSsp": "2021.11.01",
+            "releaseDate": "2021-05-05",
+            "supportedSsp": [
+                "2021.11.01",
+                "2021.05.03",
+                "2021.05.01",
+                "2021.02.02",
+                "2021.02.01",
+                "2021.01.03",
+                "2021.01.02",
+                "2021.01.01"
+            ]
+        },
+        {
+            "id": 4,
+            "composer": "6.00",
+            "imageStreamer": "6.00",
+            "milestone": "true",
+            "recommendedSsp": "2021.05.03",
+            "releaseDate": "2021-03-10",
+            "supportedSsp": [
+                "2021.05.01",
+                "2021.02.02",
+                "2021.02.01",
+                "2021.01.03",
+                "2021.01.02",
+                "2021.01.01"
+            ]
+        },
+        {
+            "id": 3,
+            "composer": "5.60.01",
+            "imageStreamer": "5.40",
+            "milestone": "false",
+            "recommendedSsp": "2021.02.02",
+            "releaseDate": "2021-04-16",
+            "supportedSsp": [
+                "2021.02.01",
+                "2021.01.03",
+                "2021.01.02",
+                "2021.01.01"
+            ]
+        },
+        {
+            "id": 2,
+            "composer": "5.60",
+            "imageStreamer": "5.40",
+            "milestone": "false",
+            "recommendedSsp": "2021.02.02",
+            "releaseDate": "2021-04-16",
+            "supportedSsp": [
+                "2021.02.01",
+                "2021.01.03",
+                "2021.01.02",
+                "2021.01.01"
+            ]
+        },
+        {
+            "id": 1,
+            "composer": "5.50",
+            "imageStreamer": "5.40",
+            "milestone": "false",
+            "recommendedSsp": "2021.01.03",
+            "releaseDate": "2020-11-02",
+            "supportedSsp": [
+                "2021.01.02",
+                "2021.01.01"
+            ]
+        },
+        {
+            "id": 0,
+            "composer": "5.40",
+            "imageStreamer": "5.40",
+            "milestone": "true",
+            "recommendedSsp": "2021.01.03",
+            "releaseDate": "2020-11-02",
+            "supportedSsp": [
+                "2021.01.02",
+                "2021.01.01"
+            ]
+        }
+    ]
+}
