@@ -592,7 +592,80 @@
             "suseLinuxEnterpriseServer": []
         },
         {
-            "redHatEnterpriseLinux": []
+            "redHatEnterpriseLinux": [
+                {
+                    "model": "SY 480 Gen10",
+                    "osVersions": [
+                        {
+                            "osVersion": "SUZE Linux Enterprise Server 15 SP2",
+                            "releaseDate": "2021-09-01",
+                            "supportedSsp": [
+                                "2021.05.03",
+                                "2021.05.01",
+                                "2021.02.02",
+                                "2021.02.01",
+                                "2021.01.03",
+                                "2021.01.02",
+                                "2021.01.01"
+                            ]
+                        },
+                        {
+                            "osVersion": "SUZE Linux Enterprise Server 15 SP1",
+                            "releaseDate": "2020-05-01",
+                            "supportedSsp": [
+                                "2021.05.01",
+                                "2021.02.02",
+                                "2021.02.01",
+                                "2021.01.03",
+                                "2021.01.02",
+                                "2021.01.01",
+                                "2020.07.03",
+                                "2020.07.02",
+                                "2020.05.02",
+                                "2020.05.01"
+                            ]
+                        },
+                        {
+                            "osVersion": "SUZE Linux Enterprise Server 15",
+                            "releaseDate": "2020-05-01",
+                            "supportedSsp": [
+                                "2020.07.03",
+                                "2020.07.02",
+                                "2020.05.02",
+                                "2020.05.01"
+                            ]
+                        },
+                        {
+                            "osVersion": "SUZE Linux Enterprise Server 12 SP5",
+                            "releaseDate": "2020-05-01",
+                            "supportedSsp": [
+                                "2021.05.01",
+                                "2021.02.02",
+                                "2021.02.01",
+                                "2021.01.03",
+                                "2021.01.02",
+                                "2021.01.01"
+                            ]
+                        },
+                        {
+                            "osVersion": "SUZE Linux Enterprise Server 12 SP4",
+                            "releaseDate": "2020-05-01",
+                            "supportedSsp": [
+                                "2021.05.01",
+                                "2021.02.02",
+                                "2021.02.01",
+                                "2021.01.03",
+                                "2021.01.02",
+                                "2021.01.01",
+                                "2020.07.03",
+                                "2020.07.02",
+                                "2020.05.02",
+                                "2020.05.01"
+                            ]
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
