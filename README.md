@@ -4,7 +4,7 @@ This API project provides the ability to perform `get` operations to collect inf
 
 The 'db.json' data was partially collected from https://techhub.hpe.com/eginfolib/synergy/sw_release_info/index.html and will be populated over time. 
 
-This API allows anyone to retrieve and use this data programmatically to feed automation engines and scripts.
+This API allows anyone to retrieve and use this data programmatically to feed automation engines and codes.
 
 The information supported by the API is as follows: 
 - HPE Synergy Software Releases accessible from https://hpe-synergy-software-api.herokuapp.com/synergyManagementCombinations 
