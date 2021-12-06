@@ -92,41 +92,54 @@ localhost                  : ok=4    changed=0    unreachable=0    failed=0    s
       register: response
       delegate_to: localhost
 
-    # - debug: var=response.json[0]
+    # - debug: var=response.json[4]
 
     - name: Getting supported Synergy Service Packs for VMware ESXi
       set_fact:
-        vmwareEsxi: "{{ response.json[0].vmwareEsxi }}"
+        vmwareEsxi: "{{ response.json[4].vmwareEsxi }}"
 
     #- debug: var=vmwareEsxi
 
-    - name: Getting supported OS versions with SY 480 Gen10
-      set_fact:
-        supported_osVersions_for_480: "{{ vmwareEsxi |
+    - set_fact:
+        supported_osVersions_for_480Gen10: "{{ vmwareEsxi |
           selectattr('model', 'equalto', 'SY 480 Gen10') |
+          map(attribute='osVersions') |
+          list }}"
+        supported_osVersions_for_480Gen10plus: "{{ vmwareEsxi |
+          selectattr('model', 'equalto', 'SY 480 Gen10 Plus') |
           map(attribute='osVersions') |
           list }}"
 
     #- debug: var=supported_osVersions_for_480
 
-    - name: Getting supported Synergy Service Packs for VMware 6.7 SP3 with SY 480 Gen10
+    - name: Getting supported Synergy Service Packs for VMware ESXi 7.0 Update 3 with HPE Synergy 480 Gen10
       set_fact:
-        supported_ssp_for_480_with_ESXi70U3: "{{ supported_osVersions_for_480[0] |
+        supported_ssp_for_480Gen10_with_ESXi70U3:
+          "{{ supported_osVersions_for_480Gen10[0] |
           selectattr('osVersion', 'equalto', 'VMware ESXi 7.0 Update 3') |
-          map(attribute='supportedSsp') |
           list }}"
 
-    - debug: var=supported_ssp_for_480_with_ESXi70U3
+    - debug: var=supported_ssp_for_480Gen10_with_ESXi70U3
 
-    - name: Getting supported Synergy Service Packs for VMware 6.7 SP2 from May 2021 with SY 480 Gen10
+    - name: Getting supported Synergy Service Packs for VMware ESXi 6.7 Update 3 from May 2021 with HPE Synergy 480 Gen10
       set_fact:
-        supported_ssp_for_480_with_ESXi70U2: "{{ supported_osVersions_for_480[0] |
-          selectattr('osVersion', 'equalto', 'VMware ESXi 7.0 Update 2') |
+        supported_ssp_for_480Gen10_with_ESXi70U2:
+          "{{ supported_osVersions_for_480Gen10[0] |
+          selectattr('osVersion', 'equalto', 'VMware ESXi 6.7 Update 3') |
           selectattr('releaseDate', 'equalto', '2021-05-01') |
-          map(attribute='supportedSsp') |
           list }}"
 
-    - debug: var=supported_ssp_for_480_with_ESXi70U2
+    - debug: var=supported_ssp_for_480Gen10_with_ESXi70U2
+
+    - name: Getting supported Synergy Service Packs for VMware ESXi 7.0 Update 3 with SHPE Synergy 480 Gen10+
+      set_fact:
+        supported_ssp_for_480Gen10plus_with_ESXi70U3:
+          "{{ supported_osVersions_for_480Gen10plus[0] |
+          selectattr('osVersion', 'equalto', 'VMware ESXi 7.0 Update 3') |
+          list }}"
+
+    - debug: var=supported_ssp_for_480Gen10plus_with_ESXi70U3
+
 
 ```
 
@@ -135,56 +148,86 @@ Output:
 ```
 ansible-playbook get-Synergy-OS-Support.yml
 
-PLAY [Gather HPE Synergy OS Support information] *************************************************************************************************************************************************************
+PLAY [Gather HPE Synergy OS Support information] ************************************************************************************************************
 
-TASK [Gathering Facts] ***************************************************************************************************************************************************************************************
+TASK [Gathering Facts] **************************************************************************************************************************************
 ok: [localhost]
 
-TASK [Gather facts about Synergy OS Support] *****************************************************************************************************************************************************************
+TASK [Gather facts about Synergy OS Support] ****************************************************************************************************************
 ok: [localhost -> localhost]
 
-TASK [Getting supported Synergy Service Packs for VMware ESXi] ***********************************************************************************************************************************************
+TASK [Getting supported Synergy Service Packs for VMware ESXi] **********************************************************************************************
 ok: [localhost]
 
-TASK [Getting supported OS versions with SY 480 Gen10] *******************************************************************************************************************************************************
+TASK [set_fact] *********************************************************************************************************************************************
 ok: [localhost]
 
-TASK [Getting supported Synergy Service Packs for VMware 6.7 SP3 with SY 480 Gen10] **************************************************************************************************************************
+TASK [Getting supported Synergy Service Packs for VMware ESXi 7.0 Update 3 with HPE Synergy 480 Gen10] ******************************************************
 ok: [localhost]
 
-TASK [debug] *************************************************************************************************************************************************************************************************
+TASK [debug] ************************************************************************************************************************************************
 ok: [localhost] => {
-    "supported_ssp_for_480_with_ESXi70U3": [
-        [
-            "2021.11.01"
-        ]
+    "supported_ssp_for_480Gen10_with_ESXi70U3": [
+        {
+            "osVersion": "VMware ESXi 7.0 Update 3",
+            "releaseDate": "2021-11-01",
+            "supportedSsp": [
+                "2021.11.01"
+            ],
+            "vlcmSupport": "true"
+        }
     ]
 }
 
-TASK [Getting supported Synergy Service Packs for VMware 6.7 SP2 from May 2021 with SY 480 Gen10] ************************************************************************************************************
+TASK [Getting supported Synergy Service Packs for VMware ESXi 6.7 Update 3 from May 2021 with HPE Synergy 480 Gen10] ****************************************
 ok: [localhost]
 
-TASK [debug] *************************************************************************************************************************************************************************************************
+TASK [debug] ************************************************************************************************************************************************
 ok: [localhost] => {
-    "supported_ssp_for_480_with_ESXi70U2": [
-        [
-            "2021.11.01",
-            "2021.05.03",
-            "2021.05.01"
-        ]
+    "supported_ssp_for_480Gen10_with_ESXi70U2": [
+        {
+            "osVersion": "VMware ESXi 6.7 Update 3",
+            "releaseDate": "2021-05-01",
+            "supportedSsp": [
+                "2021.11.01",
+                "2021.05.03",
+                "2021.05.01"
+            ],
+            "vlcmSupport": "false"
+        }
     ]
 }
 
-PLAY RECAP ***************************************************************************************************************************************************************************************************
-localhost                  : ok=8    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+TASK [Getting supported Synergy Service Packs for VMware ESXi 7.0 Update 3 with SHPE Synergy 480 Gen10+] ****************************************************
+ok: [localhost]
+
+TASK [debug] ************************************************************************************************************************************************
+ok: [localhost] => {
+    "supported_ssp_for_480Gen10plus_with_ESXi70U3": [
+        {
+            "osVersion": "VMware ESXi 7.0 Update 3",
+            "releaseDate": "2021-11-01",
+            "supportedSsp": [
+                "2021.11.01"
+            ],
+            "vlcmSupport": "true"
+        }
+    ]
+}
+
+PLAY RECAP **************************************************************************************************************************************************
+localhost                  : ok=10   changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
 ```
 
 ## PowerShell: Gather HPE Synergy Management Combination information
 
+To get supported HPE Synergy Service Packs for HPE Oneview 6.40 and HPE Image Streamer 6.40:
+
 ```
 $response = Invoke-RestMethod 'https://hpe-synergy-software-api.herokuapp.com/synergyManagementCombinations' -Method 'GET'
 
-$response | ? { $_.composer -eq "6.10" -and $_.imagestreamer -eq "6.10"} | % supportedssp
+$response | ? { $_.composer -eq "6.40" -and $_.imagestreamer -eq "6.40"} | % supportedssp
 ```
 
 Output:
@@ -198,5 +241,25 @@ Output:
 2021.01.03
 2021.01.02
 2021.01.01
+
+```
+
+## PowerShell: Gather HPE Synergy OS Support information
+
+To get supported Synergy Service Packs for VMware ESXi 7.0 Update 3 with HPE Synergy 480 Gen10
+
+```
+$response = Invoke-RestMethod 'https://hpe-synergy-software-api.herokuapp.com/synergyOsSupport' -Method 'GET'
+
+($response[4].vmwareEsxi | ? { $_.model -eq "SY 480 Gen10" }).osVersions | ? osVersion -eq "VMware ESXi 7.0 Update 3"
+
+```
+
+Output:
+
+```
+osVersion                releaseDate vlcmSupport supportedSsp
+---------                ----------- ----------- ------------
+VMware ESXi 7.0 Update 3 2021-11-01  true        {2021.11.01}
 
 ```
