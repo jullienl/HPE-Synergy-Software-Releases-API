@@ -2,7 +2,10 @@
 
 This API project provides the ability to perform `get` operations to collect information about HPE Synergy Software Releases.
 
-The 'db.json' data was totally collected from https://techhub.hpe.com/eginfolib/synergy/sw_release_info/OS_Support.html on December 6th 2021.
+'db.json' was built on the data collected on December 6, 2021 from:
+
+- https://techhub.hpe.com/eginfolib/synergy/sw_release_info/index.html
+- https://techhub.hpe.com/eginfolib/synergy/sw_release_info/OS_Support.html
 
 This API allows anyone to retrieve and use this data programmatically to feed automation engines and codes.
 
