@@ -1,6 +1,24 @@
 {
     "synergyManagementCombinations": [
         {
+            "id": 11,
+            "composer": "6.40",
+            "imageStreamer": "6.40",
+            "milestone": "false",
+            "recommendedSsp": "2021.11.01",
+            "releaseDate": "2021-11-20",
+            "supportedSsp": [
+                "2021.11.01",
+                "2021.05.03",
+                "2021.05.01",
+                "2021.02.02",
+                "2021.02.01",
+                "2021.01.03",
+                "2021.01.02",
+                "2021.01.01"
+            ]
+        },
+        {
             "id": 10,
             "composer": "6.30",
             "imageStreamer": "6.10",
